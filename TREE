@@ -1,41 +1,35 @@
 #include <iostream.h>
 #include <conio.h>
+#include <stdio.h>
 #include <malloc.h>
 #define nil NULL
-
 struct nod
 {
 	struct nod *left;char
-	data;struct nod *right;
+   data;struct nod *right;
 };
-
 typedef struct nod NOD;
 typedef NOD POKOK;
-
-NOD *NodBaru(char item){
-NOD *n;
-n=(NOD *)malloc(sizeof(NOD));
-
-if(n!= NULL){
-	n->data=item;
-	n->left=NULL;
-	n->right=NULL;
-}
-return n;
+	NOD *NodBaru (char item){
+   	nod *n;n=(NOD*)malloc (sizeof(NOD));
+   if (n!=NULL){
+   	n->data=item;
+      n->left=NULL;
+      n->right=NULL;
+   }
+   return n;
 }
 
-void BinaPokok(POKOK **T){
+void BinaPokok (POKOK **T){
 	*T=NULL;
 }
-
 bool PokokKosong (POKOK *T){
 	return ((bool)(T==NULL));
 }
-
-void TambahNod(NOD **p, char item){
+void TambahNod (NOD **p, char item){
 	NOD *n;
-	n=NodBaru(item);
-	*p=n;
+   n=NodBaru(item);
+   *p=n;
 }
 
 void preOrder(POKOK *T){
@@ -58,29 +52,29 @@ void postOrder(POKOK *T){
    			cout<<" "<<T->data;
 	}
 }
-
-//Program utama
-int main()
+int main ()
 {
-	POKOK *kelapa;
-	char buah;
-	BinaPokok(&kelapa);
-	TambahNod(&kelapa, buah='M');
-   TambahNod(&kelapa->left, buah='E');
-	TambahNod(&kelapa->left->right, buah='I');
-	TambahNod(&kelapa->right, buah='L');
-	TambahNod(&kelapa->right->right, buah='O');
-	TambahNod(&kelapa->right->right->left, buah='D');
-	cout<<"Tampilan secara PreOrder  : ";
-	preOrder (kelapa);
-  	cout<<endl;
-	cout<<"Tampilan secara InOrder   : ";
-	inOrder(kelapa);
-	cout<<endl;cout<<"Tampilan secara PostOrder : ";
-	postOrder(kelapa);
-	cout<<endl;
-	cout<<endl;
-	getch();
+		POKOK *kelapa;
+      char buah;
+      BinaPokok(&kelapa);
+      TambahNod(&kelapa,buah='M');
+      TambahNod(&kelapa->left,buah='E');
+      TambahNod(&kelapa->left->right,buah='I');
+      TambahNod(&kelapa->right,buah ='L');
+      TambahNod(&kelapa->right->right,buah='O');
+      TambahNod(&kelapa->right->right->left,buah ='D');
+      cout<<"Tampilan secara preorder \t: ";
+      preOrder(kelapa);
+      cout<<endl;
+      cout<<"Tampilan secara inorder \t: ";
+      inOrder(kelapa);
+      cout<<endl;
+      cout<<"Tampilan secara postorder \t: ";
+      postOrder(kelapa);
+      cout<<endl;
+      cout<<endl;
 
-return 0;
-}
+      getch ();
+      return 0;
+      }
+
